@@ -23,7 +23,7 @@ const ProductsPage = () => {
             Toast.fire({icon: "error", title: "Network error"})
             .then(() => navigate("/"))
         })
-    }, [navigate, user])
+    }, [navigate])
     return (
         <>
           <Header/>  
