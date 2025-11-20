@@ -10,7 +10,7 @@ const ProductsPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("http://localhost:8080/products")
+        fetch("https://geegstackecommerce.onrender.com/products")
         .then(res => res.json())
         .then(response => {
             if (response.type === "error") {
@@ -23,7 +23,7 @@ const ProductsPage = () => {
             Toast.fire({icon: "error", title: "Network error"})
             .then(() => navigate("/"))
         })
-    }, [])
+    }, [navigate, user])
     return (
         <>
           <Header/>  
@@ -32,7 +32,7 @@ const ProductsPage = () => {
                         products.map((product) => {
                             return (
                               <article class="product">
-                                <img src={"http://localhost:8080/" + product?.imageurl[0]}  alt="productimg"/>
+                                <img src={"https://geegstackecommerce.onrender.com/" + product?.imageurl[0]}  alt="productimg"/>
                                 <h3>{product.name}</h3>
                                 <div class="flex">
                                     <p class="price">{product.price.toLocaleString()}</p>

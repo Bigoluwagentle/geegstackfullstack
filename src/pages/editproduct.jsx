@@ -20,7 +20,7 @@ const EditProductPage = () => {
             Toast.fire({icon: "error", title: "You need to be logged in.."})
             .then(() => navigate("/admin/login"))
         }
-        fetch("http://localhost:8080/products/" + params.id)
+        fetch("https://geegstackecommerce.onrender.com/products/" + params.id)
         .then(res => res.json())
         .then(response => {
             if(response.type === "error") {
@@ -37,14 +37,14 @@ const EditProductPage = () => {
             return navigate("/");
         })
         
-    }, [navigate, params.id])
+    }, [navigate, params.id, adminToken])
     
     const submitHandler = (e) => {
         e.preventDefault();
         let formData = {...form, images: [form.imageurl], price: parseFloat(form.price)};
         formData = JSON.stringify(formData);
 
-        fetch("http://localhost:8080/products/" + params.id, {
+        fetch("https://geegstackecommerce.onrender.com/products/" + params.id, {
             method: "PUT",
             headers: {"Content-Type": "application/json", token: "Bearer " + adminToken},
             body: formData

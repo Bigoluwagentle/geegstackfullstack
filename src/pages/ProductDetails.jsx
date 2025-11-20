@@ -14,7 +14,7 @@ const ProductDetailsPage = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:8080/products/" + params.id)
+        fetch("https://geegstackecommerce.onrender.com/products/" + params.id)
         .then(res => res.json())
         .then(response => {
             console.log(response)
@@ -40,7 +40,7 @@ const ProductDetailsPage = () => {
         })
         .then(res => {
             if(res.isConfirmed) {
-                fetch("http://localhost:8080/products/" + params.id, {
+                fetch("https://geegstackecommerce.onrender.com/products/" + params.id, {
                     method: "DELETE",
                     headers: {token: "Bearer " + adminToken}
                 })
@@ -64,7 +64,7 @@ const ProductDetailsPage = () => {
         <>
             <Header/>
             <main className="product-details">
-                <img src={"http://localhost:8080/product_images/" + (product?.imageurl && product.imageurl[0])} alt="Product" />
+                <img src={"https://geegstackecommerce.onrender.com/product_images/" + (product?.imageurl && product.imageurl[0])} alt="Product" />
                 <h2>{product.name}</h2>
                 <p class="price">NGN{product?.price?.toLocaleString()}</p>
                 <p class="desc"> {product?.description} </p>

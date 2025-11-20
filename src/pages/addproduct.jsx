@@ -34,7 +34,7 @@ const AddProductPage = () => {
         }
 
 
-        fetch("http://localhost:8080/products", {
+        fetch("https://geegstackecommerce.onrender.com/products", {
             method: "POST",
             headers: { token: "Bearer " + adminToken},
             body: formData
